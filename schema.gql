@@ -4,7 +4,7 @@
 
 type User {
   """The identifier of the user"""
-  id: String!
+  _id: String!
 
   """The first name of the user"""
   firstName: String!
@@ -31,9 +31,6 @@ type Mutation {
 }
 
 input CreateUserInput {
-  """The identifier of the user"""
-  id: String!
-
   """The first name of the user"""
   firstName: String!
 
@@ -48,8 +45,6 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
-  id: String!
-
   """The first name of the user"""
   firstName: String
 
@@ -61,4 +56,5 @@ input UpdateUserInput {
 
   """The password of the user / Used for authentication"""
   password: String
+  id: String!
 }
