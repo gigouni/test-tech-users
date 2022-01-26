@@ -66,6 +66,8 @@ nest new project-name
 - Windows 10
 - VS Code 1.63.2
 - Node.js v14.17.1 && npm v6.14.13
+- GitHub forked repo
+  - Cannot switch its visibility to private after the fork: _"For security reasons, you cannot change the visibility of a fork."_
 
 ## 1.4. How to use
 
@@ -108,3 +110,11 @@ npm run test:cov
 __Source__: [https://docs.nestjs.com/graphql/quick-start#overview](https://docs.nestjs.com/graphql/quick-start#overview)
 
 The chosen GraphQL approach will be the code-first one. It use decorators and TypeScript classes to generate the corresponding GraphQL schema. This approach is useful if you prefer to work exclusively with TypeScript and avoid context switching between language syntaxes.
+
+Generate the schema using the Nest generator
+
+```shell
+nest g resource users
+```
+
+And adapt it to the current context.

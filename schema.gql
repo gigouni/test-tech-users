@@ -1,0 +1,64 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  """The identifier of the user"""
+  id: String!
+
+  """The first name of the user"""
+  firstName: String!
+
+  """The last name of the user"""
+  lastName: String!
+
+  """The email of the user / Used for authentication"""
+  email: String!
+
+  """The password of the user / Used for authentication"""
+  password: String!
+}
+
+type Query {
+  users: [User!]!
+  user(id: Int!): User!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+}
+
+input CreateUserInput {
+  """The identifier of the user"""
+  id: String!
+
+  """The first name of the user"""
+  firstName: String!
+
+  """The last name of the user"""
+  lastName: String!
+
+  """The email of the user / Used for authentication"""
+  email: String!
+
+  """The password of the user / Used for authentication"""
+  password: String!
+}
+
+input UpdateUserInput {
+  id: String!
+
+  """The first name of the user"""
+  firstName: String
+
+  """The last name of the user"""
+  lastName: String
+
+  """The email of the user / Used for authentication"""
+  email: String
+
+  """The password of the user / Used for authentication"""
+  password: String
+}
