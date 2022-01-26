@@ -1,30 +1,44 @@
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <a href="https://info.casap.com/" target="blank"><img src="https://maddyness.twic.pics/2021/11/Capture-decran-2021-11-26-a-11.05.03.png" width="120" alt="Casap Logo" /></a>
+</p>
 
-# Test API Users
+<p align="center">Technical test to join <a href="https://info.casap.com/" target="_blank">the awesome Casap company</a>.</p>
 
-Ce test consiste à réaliser une API graphql permettant de créer/modifier/supprimer des utilisateurs.
+## Getting started
 
-Nous prendrons en compte dans notre debrief du test:
-- La lisibilité, l'atomicité et la robustesse du code
-- Le soin apporté aux tests
-- La clarté du Readme
-- Les bonnes pratiques de sécurité
+## Development details
 
-Le rendu du test est demandé sous la forme d'un fork privé de ce dépot dans lequel vous pourrez inviter @maximelebastard, @cchevallscoppe et @Webini. Le test est censé prendre entre 2 et 4 heures. Si vous n'avez pas pu terminer certaines choses ou que vous avez eu des idées que vous n'avez pas eu le temps de mettre en place - n'hésitez surtout pas à nous le préciser dans votre README.md
+- Free technos & libs until it match Node.js / TypeScript and allow a GraphQL API integration.
+  - Look for a convenient files structure and found out about [NestJS](https://github.com/nestjs/nest) (framework)
+    - Generate in a minute a working stack following standards/conventions
+    - Integrate tools to improve development workflow
+    - New techno for me, a risk but also a way to challenge myself using a new framework which could be useful for Casap (_let's have fun!_)
+      - Proof of ability about reading documentation, assuming and using the content of a documentation for a task/project
+    - Provide a bunch of [working examples](https://github.com/nestjs/nest/tree/master/sample)
+      - Ease the development
+      - Provide good code quality pattern
+      - Provide an impressive technical documentation about security practises
+      - Is approved by the community!
 
-## Partie API
+Test started the 26th of January, 2022 at 06h PM.
 
-Avec les technologies et librairies de votre choix, réaliser en NodeJS et Typescript une API GraphQL permettant de:
+## Objectives
 
-- Créer un User (nom, prénom, email, mot de passe)
-- Modifier un User
-- Supprimer un user
+- Generate the NestJS stack [following its documentation](https://docs.nestjs.com/)
 
-Pour stocker les données, on utilisera un serveur MongoDB Dockerisé.
+```
+$ npm i -g @nestjs/cli
+$ nest new project-name
+```
 
-Nous vous demandons de tester votre code au maximum, lorsque les tests sont pertinents.
+- Add the GraphQL schema and its API resolvers
+- Add a `docker-compose.yml` to have a side Mongo-in-Docker container
+- Add tests using jest (_used by Casap for its own tests suites_)
+- Add an auth endpoint
 
-## Partie login
+## Environment details
 
-En utilisant la librairie de votre choix, protégez votre nouvelle API GraphQL par un système de login. Pour accéder à votre API, il faudra ainsi s'identifier en tant que l'un des users.
-
-Vous pouvez utiliser les outils et le protocole de votre choix (Basic, OAuth, JWT...). La seule contrainte est de devoir s'authentifier avec un email et un mot de passe valide pour pouvoir effectuer des requêtes sur l'API.
+- Windows 10
+- VS Code 1.63.2
+- Node.js v14.17.1 && npm v6.14.13
