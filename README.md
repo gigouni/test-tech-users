@@ -11,9 +11,24 @@
     <a href="#" target="_blank"><img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" /></a>
 </p>
 
-## Getting started
+<!-- TOC -->
 
-## Development details
+- [1. Getting started](#1-getting-started)
+    - [1.1. Development details](#11-development-details)
+    - [1.2. Objectives](#12-objectives)
+    - [1.3. Environment details](#13-environment-details)
+    - [1.4. How to use](#14-how-to-use)
+        - [1.4.1. Installation](#141-installation)
+        - [1.4.2. Running the app](#142-running-the-app)
+        - [1.4.3. Test](#143-test)
+- [Technical choices](#technical-choices)
+    - [GraphQL](#graphql)
+
+<!-- /TOC -->
+
+# 1. Getting started
+
+## 1.1. Development details
 
 - Free technos & libs until it match Node.js / TypeScript and allow a GraphQL API integration.
   - Look for a convenient files structure and found out about [NestJS](https://github.com/nestjs/nest) (framework)
@@ -29,7 +44,7 @@
 
 Test started the 26th of January, 2022 at 06h PM.
 
-## Objectives
+## 1.2. Objectives
 
 - Generate the NestJS stack [following its documentation](https://docs.nestjs.com/)
 
@@ -38,26 +53,29 @@ npm i -g @nestjs/cli
 nest new project-name
 ```
 
-- Add the GraphQL schema and its API resolvers
-- Add a `docker-compose.yml` to have a side Mongo-in-Docker container
-- Add tests using jest (_used by Casap for its own tests suites_)
+- Add the GraphQL schema and its API resolvers to
+  - Create an user (props: _id_, firstName, lastName, email, password)
+  - Edit an user
+  - Delete an user
+- Add a `docker-compose.yml` to have a side Mongo-in-Docker container to store data
+- Add tests using [jest](https://jestjs.io/fr/) (_used by Casap for its own tests suites_)
 - Add an auth endpoint
 
-## Environment details
+## 1.3. Environment details
 
 - Windows 10
 - VS Code 1.63.2
 - Node.js v14.17.1 && npm v6.14.13
 
-## How to use
+## 1.4. How to use
 
-### Installation
+### 1.4.1. Installation
 
 ```bash
 npm install
 ```
 
-### Running the app
+### 1.4.2. Running the app
 
 ```bash
 # development
@@ -70,7 +88,7 @@ npm run start:dev
 npm run start:prod
 ```
 
-### Test
+### 1.4.3. Test
 
 ```bash
 # unit tests
@@ -82,3 +100,11 @@ npm run test:e2e
 # test coverage
 npm run test:cov
 ```
+
+# Technical choices
+
+## GraphQL
+
+__Source__: [https://docs.nestjs.com/graphql/quick-start#overview](https://docs.nestjs.com/graphql/quick-start#overview)
+
+The chosen GraphQL approach will be the code-first one. It use decorators and TypeScript classes to generate the corresponding GraphQL schema. This approach is useful if you prefer to work exclusively with TypeScript and avoid context switching between language syntaxes.
