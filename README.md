@@ -27,8 +27,10 @@
     - [2.2. Workflow](#22-workflow)
         - [2.2.1. Starting](#221-starting)
         - [2.2.2. Using](#222-using)
-- [3. Remain to do](#3-remain-to-do)
-    - [3.1. Online resources](#31-online-resources)
+- [3. End of the test](#3-end-of-the-test)
+    - [3.1. Time's up](#31-times-up)
+    - [3.2. Remain to do](#32-remain-to-do)
+- [4. Online resources](#4-online-resources)
 
 <!-- /TOC -->
 
@@ -47,10 +49,6 @@
       - Provide good code quality pattern
       - Provide an impressive technical documentation about security practices
       - Is approved by the community!
-
-Test started the 26th of January, 2022 at 18h00.
-Break time at 19h50 during 1h20 (dinner time + coffee reloading + Docker install).
-End of the test at 23h20 to respect the 4h timing and cleaning of the project before the final push.
 
 ## 1.2. Objectives
 
@@ -123,7 +121,7 @@ npm run test:cov
 
 ## 2.1. GraphQL
 
-__Source__: [https://docs.nestjs.com/graphql/quick-start#overview](https://docs.nestjs.com/graphql/quick-start#overview)
+**Source**: [https://docs.nestjs.com/graphql/quick-start#overview](https://docs.nestjs.com/graphql/quick-start#overview)
 
 The chosen GraphQL approach will be the code-first one. It use decorators and TypeScript classes to generate the corresponding GraphQL schema. This approach is useful if you prefer to work exclusively with TypeScript and avoid context switching between language syntaxes.
 
@@ -138,6 +136,7 @@ And adapt it to the current context.
 ### 2.1.1. Resolvers
 
 You can found examples of working resolvers to play with the playground within the [QUERIES.md](./QUERIES.md) and [MUTATIONS.md](./MUTATIONS.md) files.
+Two queries, `users` and `user` have been added to improve the application usage.
 
 ## 2.2. Workflow
 
@@ -159,15 +158,22 @@ Let's get an overview of the workflow when we're requesting the app API (example
 - `src/users/users.resolver.ts`: return the created user data to the API
 - end of the request workflow
 
-# 3. Remain to do
+# 3. End of the test
+
+## 3.1. Time's up
+
+- Test started the 26th of January, 2022 at 18h00.
+- Break time at 19h50 during 1h20 (dinner time + coffee reloading + Docker install).
+- End of the test at 23h20 to respect the 4h timing and cleaning of the project before the final push.
+
+## 3.2. Remain to do
 
 - Use [Schema based validation pipes](https://docs.nestjs.com/pipes#schema-based-validation)
-  - ValidationPipe usage with Nest/GraphQL: https://github.com/nestjs/nest/issues/819
-- Implement the auth API
+- Implement the auth API: https://github.com/nestjs/nest/tree/master/sample/19-auth-jwt (_REST sample_)
 - Add some tests suites and finish to fix the `src\users\users.service.spec.ts` one
 - Improve the logs to ease the debug/maintainability thru a [custom implementation](https://docs.nestjs.com/techniques/logger#custom-implementation)
 
-## 3.1. Online resources
+# 4. Online resources
 
 - NestJS documentation: https://docs.nestjs.com/
 - NestJS GitHub repository: https://github.com/nestjs/nest
