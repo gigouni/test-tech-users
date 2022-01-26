@@ -5,6 +5,12 @@
 
 <p align="center">Technical test to join <a href="https://info.casap.com/" target="_blank">the awesome Casap company</a>.</p>
 
+<p align="center">
+    <a href="#" target="_blank"><img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" /></a>
+    <a href="#" target="_blank"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
+    <a href="#" target="_blank"><img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" /></a>
+</p>
+
 ## Getting started
 
 ## Development details
@@ -27,9 +33,9 @@ Test started the 26th of January, 2022 at 06h PM.
 
 - Generate the NestJS stack [following its documentation](https://docs.nestjs.com/)
 
-```
-$ npm i -g @nestjs/cli
-$ nest new project-name
+```shell
+npm i -g @nestjs/cli
+nest new project-name
 ```
 
 - Add the GraphQL schema and its API resolvers
@@ -42,3 +48,37 @@ $ nest new project-name
 - Windows 10
 - VS Code 1.63.2
 - Node.js v14.17.1 && npm v6.14.13
+
+## How to use
+
+### Installation
+
+```bash
+npm install
+```
+
+### Running the app
+
+```bash
+# development
+npm run start
+
+# watch mode
+npm run start:dev
+
+# production mode
+npm run start:prod
+```
+
+### Test
+
+```bash
+# unit tests
+npm run test
+
+# e2e tests
+npm run test:e2e
+
+# test coverage
+npm run test:cov
+```
