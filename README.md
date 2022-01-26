@@ -23,6 +23,8 @@
         - [1.4.3. Test](#143-test)
 - [Technical choices](#technical-choices)
     - [GraphQL](#graphql)
+        - [Resolvers](#resolvers)
+    - [Workflow](#workflow)
 
 <!-- /TOC -->
 
@@ -30,19 +32,20 @@
 
 ## 1.1. Development details
 
-- Free technos & libs until it match Node.js / TypeScript and allow a GraphQL API integration.
+- Free technos & libs until it matches Node.js / TypeScript and allow a GraphQL API integration.
   - Look for a convenient files structure and found out about [NestJS](https://github.com/nestjs/nest) (framework)
-    - Generate in a minute a working stack following standards/conventions
-    - Integrate tools to improve development workflow
     - New techno for me, a risk but also a way to challenge myself using a new framework which could be useful for Casap (_let's have fun!_)
       - Proof of ability about reading documentation, assuming and using the content of a documentation for a task/project
+    - Generate in a minute a working stack following standards/conventions
+    - Integrate tools to improve development workflow
     - Provide a bunch of [working examples](https://github.com/nestjs/nest/tree/master/sample)
       - Ease the development
       - Provide good code quality pattern
-      - Provide an impressive technical documentation about security practises
+      - Provide an impressive technical documentation about security practices
       - Is approved by the community!
 
-Test started the 26th of January, 2022 at 06h PM.
+Test started the 26th of January, 2022 at 18h00.
+Break time at 19h50 during 1h20 (dinner time + coffee reloading + Docker install).
 
 ## 1.2. Objectives
 
@@ -80,6 +83,9 @@ npm install
 ### 1.4.2. Running the app
 
 ```bash
+# starting the database
+npm run start:db
+
 # development
 npm run start
 
@@ -88,7 +94,13 @@ npm run start:dev
 
 # production mode
 npm run start:prod
+
+# stopping the db
+npm run stop:db
 ```
+
+UI available at [locahost:8080](http://localhost:8080/).
+GraphQL playground available at [locahost:8080](http://localhost:8080/graphql).
 
 ### 1.4.3. Test
 
@@ -118,3 +130,23 @@ nest g resource users
 ```
 
 And adapt it to the current context.
+
+### Resolvers
+
+You can found examples of working resolvers to play with the playground within the [QUERIES.md](./QUERIES.md) and [MUTATIONS.md](./MUTATIONS.md) files.
+
+## Workflow
+
+Let's get an overview of the workflow when requesting the app API (example: create a user)
+
+- start of the application
+- `src/main.ts`: init the app
+- `src/app.module.ts`: start the app and open the GraphQL endpoints to introspection
+- app ready!
+
+- request (query/mutation) received: the `src/app.module.ts -> GraphQLModule` will forward the request to the endpoint
+- `src/users/users.resolver.ts`: detect the mutation and forward it to the `createUser` function
+- `src/users/users.resolver.ts -> createUser`: capture the user input and use the `UserService` class to update the database
+- `src\users\users.service.ts -> createUser`: create the user in database based on its model and return it
+- `src/users/users.resolver.ts`: return the created user data to the API
+- end of the request workflow
