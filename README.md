@@ -28,6 +28,7 @@
         - [2.2.1. Starting](#221-starting)
         - [2.2.2. Using](#222-using)
 - [3. Remain to do](#3-remain-to-do)
+    - [3.1. Online resources](#31-online-resources)
 
 <!-- /TOC -->
 
@@ -49,6 +50,7 @@
 
 Test started the 26th of January, 2022 at 18h00.
 Break time at 19h50 during 1h20 (dinner time + coffee reloading + Docker install).
+End of the test at 23h20 to respect the 4h timing and cleaning of the project before the final push.
 
 ## 1.2. Objectives
 
@@ -159,7 +161,13 @@ Let's get an overview of the workflow when we're requesting the app API (example
 
 # 3. Remain to do
 
-- Use [Schema based validation pipes](https://docs.nestjs.com/pipes#schema-based-validation) instead of hardcoded checks
-- Add the JWT auth
-- Improve the tests suites
-- Improve the logs to ease the debug/maintainability
+- Use [Schema based validation pipes](https://docs.nestjs.com/pipes#schema-based-validation)
+  - ValidationPipe usage with Nest/GraphQL: https://github.com/nestjs/nest/issues/819
+- Implement the auth API
+- Add some tests suites and finish to fix the `src\users\users.service.spec.ts` one
+- Improve the logs to ease the debug/maintainability thru a [custom implementation](https://docs.nestjs.com/techniques/logger#custom-implementation)
+
+## 3.1. Online resources
+
+- NestJS documentation: https://docs.nestjs.com/
+- NestJS GitHub repository: https://github.com/nestjs/nest
