@@ -21,10 +21,13 @@
         - [1.4.1. Installation](#141-installation)
         - [1.4.2. Running the app](#142-running-the-app)
         - [1.4.3. Test](#143-test)
-- [Technical choices](#technical-choices)
-    - [GraphQL](#graphql)
-        - [Resolvers](#resolvers)
-    - [Workflow](#workflow)
+- [2. Technical choices](#2-technical-choices)
+    - [2.1. GraphQL](#21-graphql)
+        - [2.1.1. Resolvers](#211-resolvers)
+    - [2.2. Workflow](#22-workflow)
+        - [2.2.1. Starting](#221-starting)
+        - [2.2.2. Using](#222-using)
+- [3. Remain to do](#3-remain-to-do)
 
 <!-- /TOC -->
 
@@ -99,8 +102,7 @@ npm run start:prod
 npm run stop:db
 ```
 
-UI available at [locahost:8080](http://localhost:8080/).
-GraphQL playground available at [locahost:8080](http://localhost:8080/graphql).
+GraphQL playground available at [localhost:3000](http://localhost:3000/graphql).
 
 ### 1.4.3. Test
 
@@ -115,9 +117,9 @@ npm run test:e2e
 npm run test:cov
 ```
 
-# Technical choices
+# 2. Technical choices
 
-## GraphQL
+## 2.1. GraphQL
 
 __Source__: [https://docs.nestjs.com/graphql/quick-start#overview](https://docs.nestjs.com/graphql/quick-start#overview)
 
@@ -131,18 +133,22 @@ nest g resource users
 
 And adapt it to the current context.
 
-### Resolvers
+### 2.1.1. Resolvers
 
 You can found examples of working resolvers to play with the playground within the [QUERIES.md](./QUERIES.md) and [MUTATIONS.md](./MUTATIONS.md) files.
 
-## Workflow
+## 2.2. Workflow
 
-Let's get an overview of the workflow when requesting the app API (example: create a user)
+Let's get an overview of the workflow when we're requesting the app API (example: create a user).
+
+### 2.2.1. Starting
 
 - start of the application
 - `src/main.ts`: init the app
 - `src/app.module.ts`: start the app and open the GraphQL endpoints to introspection
 - app ready!
+
+### 2.2.2. Using
 
 - request (query/mutation) received: the `src/app.module.ts -> GraphQLModule` will forward the request to the endpoint
 - `src/users/users.resolver.ts`: detect the mutation and forward it to the `createUser` function
@@ -150,3 +156,10 @@ Let's get an overview of the workflow when requesting the app API (example: crea
 - `src\users\users.service.ts -> createUser`: create the user in database based on its model and return it
 - `src/users/users.resolver.ts`: return the created user data to the API
 - end of the request workflow
+
+# 3. Remain to do
+
+- Use [Schema based validation pipes](https://docs.nestjs.com/pipes#schema-based-validation) instead of hardcoded checks
+- Add the JWT auth
+- Improve the tests suites
+- Improve the logs to ease the debug/maintainability

@@ -1,3 +1,4 @@
+// import { Int } from '@nestjs/graphql';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -12,28 +13,25 @@ export class UsersService {
   ) {}
 
   async create(createUserInput: CreateUserInput): Promise<User> {
-    console.log(`Creating the user:: ${JSON.stringify(createUserInput)}`);
-    const createdUser = await this.userModel.create(createUserInput);
-    console.log('User created successfully!');
-    return createdUser;
+    return this.userModel.create({
+      ...createUserInput,
+    });
   }
 
   async findAll(): Promise<User[]> {
-    console.log('Getting users...');
-    const data = await this.userModel.find({});
-    console.log(`Found users:: ${JSON.stringify(data)}`);
-    return data
+    return this.userModel.find({});
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} user`;
+  async findOne(_id: string): Promise<User> {
+    return this.userModel.findOne({ id: _id });
   }
 
-  update(id: string, updateUserInput: UpdateUserInput) {
-    return `This action updates a #${id} user`;
+  async update(id: string, updateUserInput: UpdateUserInput): Promise<User> {
+    return this.userModel.findOneAndUpdate({ id: id }, updateUserInput);
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} user`;
+  async remove(id: string) {
+    const response = await this.userModel.deleteOne({ id: id });
+    return response ? response.deletedCount : 0;
   }
 }
